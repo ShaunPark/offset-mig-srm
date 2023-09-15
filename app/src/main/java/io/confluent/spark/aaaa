@@ -1,0 +1,63 @@
+./kafka-console-producer --bootstrap-server localhost:9092 --topic tgt_test_topic --property parse.key=true --property key.separator="|"
+
+["replicator",{"topic":"london","partition":0}]|{"offset":125}
+["replicator",{"topic":"london","partition":1}]|{"offset":89}
+["replicator",{"topic":"london","partition":2}]|{"offset":135}
+
+
+["replicator",{"topic":"london","partition":2}]}|{"offset":333}
+
+
+./kafka-console-producer --bootstrap-server pkc-e82om.ap-northeast-2.aws.confluent.cloud:9092 --producer.config ~/test/srm.properties --topic srm_test --property parse.key=true --property key.separator="|"
+
+
+
+./kafka-topics --bootstrap-server pkc-e82om.ap-northeast-2.aws.confluent.cloud:9092 --producer.config ~/test/srm.properties --list
+
+
+
+["replicator",{"topic":"london","partition":0}]|{"offset":125}
+["replicator",{"partition":1, "topic":"london"}]|{"offset":89}
+["replicator",{"topic":"london","partition":2}]|{"offset":135}
+
+
+
+./kafka-console-consumer --bootstrap-server localhost:9092 --topic tgt_test_topic --property parse.key=true --property key.separator="|"
+
+
+./kafka-console-producer --bootstrap-server localhost:9092 --topic src_test_topic --property parse.key=true --property key.separator="|"
+
+
+["replicator",{"cluster":"test","topic":"london","partition":0}]|{"offset":225}
+["replicator",{"topic":"london",     "partition":4}]|{"offset":289}
+["replicator",{"topic":"london","partition":2}]|{"offset":235}
+["replicator",{"topic":"london","partition":4}]|{"offset":235}
+["replicator",{"topic":"london","partition":3}]|{"offset":235}
+["replicator",{"cluster":"test","topic":"london","partition":3}]|{"offset":225}
+
+
+https://codeload.github.com/confluentinc/cp-ansible/zip/refs/heads/7.3.4-post
+https://codeload.github.com/confluentinc/cp-ansible/zip/refs/heads/7.3.4-post
+
+
+
+
+[2023-06-19 03:40:37,119] TRACE Searching groups with base OU=groups,DC=example,DC=com filter (objectClass=groupOfNames):  (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,122] TRACE Processing full search result cn=group1: null:null:{member=member: cn=control_center,ou=users,dc=example,dc=com, cn=cn: group1} (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,122] DEBUG Ignoring member in LDAP GROUPS group1 that doesn't match pattern: cn=control_center,ou=users,dc=example,dc=com (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,122] TRACE Processing full search result cn=groupadmin: null:null:{member=member: cn=spark2,ou=users,dc=example,dc=com, cn=cn: groupadmin} (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,122] DEBUG Ignoring member in LDAP GROUPS groupadmin that doesn't match pattern: cn=spark2,ou=users,dc=example,dc=com (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,122] TRACE Processing full search result cn=testgroup: null:null:{member=member: cn=spark,ou=users,dc=example,dc=com, cn=cn: testgroup} (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,122] DEBUG Ignoring member in LDAP GROUPS testgroup that doesn't match pattern: cn=spark,ou=users,dc=example,dc=com (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,123] TRACE Processing full search result cn=직원: null:null:{member=member: cn=spark,ou=users,dc=example,dc=com, cn=직원1,ou=users,dc=example,dc=com, cn=cn: 직원} (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,123] DEBUG Ignoring member in LDAP GROUPS 직원 that doesn't match pattern: cn=spark,ou=users,dc=example,dc=com (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,123] DEBUG Ignoring member in LDAP GROUPS 직원 that doesn't match pattern: cn=직원1,ou=users,dc=example,dc=com (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+[2023-06-19 03:40:37,125] DEBUG Search completed, group cache is {} (io.confluent.security.auth.provider.ldap.LdapGroupManager)
+
+
+
+
+ldapsearch -H ldap://54.180.197.163:10389 -x -D "uid=cp-admin,ou=직원,dc=example,dc=com" -w "password" -b "dc=example,dc=com"
+
+
+ldapsearch -H ldap://54.180.197.163:10389 -x -D "uid=cp-admin,ou=직원,dc=example,dc=com" -w "password" -b "dc=example,dc=com"
